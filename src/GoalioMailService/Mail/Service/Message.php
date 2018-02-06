@@ -8,31 +8,7 @@ use Zend\Mail\Message as MailMessage;
 use Zend\Mime\Message as MimeMessage;
 use Zend\Mime\Part as MimePart;
 
-class Message implements ServiceManagerAwareInterface {
-
-    /**
-     *
-     * @var ServiceManager
-     */
-    protected $serviceManager;
-
-    /**
-     *
-     * @param ServiceManager $serviceManager
-     * @return AbstractService
-     */
-    public function setServiceManager(ServiceManager $serviceManager) {
-        $this->serviceManager = $serviceManager;
-        return $this;
-    }
-
-    /**
-     *
-     * @return ServiceManager
-     */
-    public function getServiceManager() {
-        return $this->serviceManager;
-    }
+class Message {
 
     /**
      *
@@ -45,6 +21,12 @@ class Message implements ServiceManagerAwareInterface {
      * @var \Zend\Mail\Transport\TransportInterface
      */
     protected $transport;
+
+    public function __construct($transport, $renderer)
+    {
+        $this->transport = $transport;
+        $this->renderer = $renderer;
+    }
 
     /**
      * Return a HTML message ready to be sent
@@ -116,11 +98,6 @@ class Message implements ServiceManagerAwareInterface {
      * @return \Zend\View\Renderer\RendererInterface
      */
     public function getRenderer() {
-        if($this->renderer === null) {
-            $serviceManager = $this->getServiceManager();
-            $this->renderer = $serviceManager->get('goaliomailservice_renderer');
-        }
-
         return $this->renderer;
     }
 
@@ -141,11 +118,6 @@ class Message implements ServiceManagerAwareInterface {
      * @return \Zend\Mail\Transport\TransportInterface
      */
     public function getTransport() {
-        if($this->transport === null) {
-            $this->transport = $this->getServiceManager()
-                ->get('goaliomailservice_transport');
-        }
-
         return $this->transport;
     }
 
