@@ -17,7 +17,7 @@ class TransportOptionsTest extends \PHPUnit_Framework_TestCase {
     }
 
     public function testGetTransportClass() {
-        $this->assertEquals('Zend\Mail\Transport\File', $this->transportOptions->getTransportClass());
+        $this->assertEquals('Laminas\Mail\Transport\File', $this->transportOptions->getTransportClass());
     }
 
     public function testSetGetTransportClass() {
@@ -27,7 +27,7 @@ class TransportOptionsTest extends \PHPUnit_Framework_TestCase {
     }
 
     public function testGetOptionsClass() {
-        $this->assertEquals('Zend\Mail\Transport\FileOptions', $this->transportOptions->getOptionsClass());
+        $this->assertEquals('Laminas\Mail\Transport\FileOptions', $this->transportOptions->getOptionsClass());
     }
 
     public function testSetGetOptionsClass() {

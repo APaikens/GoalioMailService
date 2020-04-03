@@ -17,7 +17,7 @@ class MailPhpRendererFactoryTest extends \PHPUnit_Framework_TestCase {
         $sm = ServiceManagerFactory::getServiceManager();
         $options = $sm->get('goaliomailservice_renderer');
 
-        $this->assertInstanceOf('Zend\View\Renderer\PhpRenderer', $options);
+        $this->assertInstanceOf('Laminas\View\Renderer\PhpRenderer', $options);
     }
 
     public function testCreateService() {
@@ -25,6 +25,6 @@ class MailPhpRendererFactoryTest extends \PHPUnit_Framework_TestCase {
         $factory = new MailPhpRendererFactory();
         $options = $factory->createService($sm, 'goaliomailservicerenderer');
 
-        $this->assertInstanceOf('Zend\View\Renderer\PhpRenderer', $options);
+        $this->assertInstanceOf('Laminas\View\Renderer\PhpRenderer', $options);
     }
 }
