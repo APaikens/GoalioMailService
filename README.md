@@ -16,7 +16,7 @@ Requirements
 Features / Goals
 ----------------
 
-* Configure transport service for using Zend\Mail [COMPLETE]
+* Configure transport service for using Laminas\Mail [COMPLETE]
 
 Changelog
 ---------
@@ -83,9 +83,9 @@ SMTP Setup
 GoalioMailService uses sendmail by default, but you can set it up to use SMTP by putting your information in the config file like this:
 
     $settings = array(
-        'type' => 'Zend\Mail\Transport\Smtp',
+        'type' => 'Laminas\Mail\Transport\Smtp',
 
-        'options_class' => 'Zend\Mail\Transport\SmtpOptions',
+        'options_class' => 'Laminas\Mail\Transport\SmtpOptions',
 
         'options' => array(
             'host' => 'smtp.gmail.com',

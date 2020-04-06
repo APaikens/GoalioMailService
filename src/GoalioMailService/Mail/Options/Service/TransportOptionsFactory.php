@@ -2,8 +2,8 @@
 namespace GoalioMailService\Mail\Options\Service;
 
 use GoalioMailService\Mail\Options\TransportOptions;
-use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\ServiceManager\FactoryInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
+use Laminas\ServiceManager\FactoryInterface;
 
 class TransportOptionsFactory implements FactoryInterface {
 

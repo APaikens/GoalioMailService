@@ -1,9 +1,9 @@
 <?php
 namespace GoalioMailService;
 
-use Zend\Mvc\MvcEvent;
-use Zend\Loader\StandardAutoloader;
-use Zend\Loader\AutoloaderFactory;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Loader\StandardAutoloader;
+use Laminas\Loader\AutoloaderFactory;
 
 class Module {
 

@@ -11,7 +11,7 @@ class TransportFactoryTest extends \PHPUnit_Framework_TestCase {
         $sm = ServiceManagerFactory::getServiceManager();
         $transport = $sm->get('goaliomailservice_transport');
 
-        $this->assertInstanceOf('Zend\Mail\Transport\File', $transport);
+        $this->assertInstanceOf('Laminas\Mail\Transport\File', $transport);
     }
 
     public function testCreateService() {
@@ -19,7 +19,7 @@ class TransportFactoryTest extends \PHPUnit_Framework_TestCase {
         $factory = new TransportFactory();
         $transport = $factory->createService($sm, 'goaliomailservicetransport');
 
-        $this->assertInstanceOf('Zend\Mail\Transport\File', $transport);
+        $this->assertInstanceOf('Laminas\Mail\Transport\File', $transport);
     }
 
     /**

@@ -2,15 +2,15 @@
 
 namespace GoalioMailService\Mail\Options;
 
-use Zend\Stdlib\AbstractOptions;
+use Laminas\Stdlib\AbstractOptions;
 
 class TransportOptions extends AbstractOptions {
 
     /** @var string  */
-    protected $transportClass = 'Zend\Mail\Transport\File';
+    protected $transportClass = 'Laminas\Mail\Transport\File';
 
     /** @var string  */
-    protected $optionsClass = 'Zend\Mail\Transport\FileOptions';
+    protected $optionsClass = 'Laminas\Mail\Transport\FileOptions';
 
     /** @var array  */
     protected $transportOptions = array(

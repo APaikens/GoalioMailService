@@ -2,9 +2,9 @@
 
 namespace GoalioMailService\Mail\View;
 
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\View\Renderer\PhpRenderer;
+use Laminas\ServiceManager\FactoryInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
+use Laminas\View\Renderer\PhpRenderer;
 use Interop\Container\ContainerInterface;
 
 class MailPhpRendererFactory implements FactoryInterface {

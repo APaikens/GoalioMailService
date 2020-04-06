@@ -11,12 +11,12 @@ class MessageTest extends \PHPUnit_Framework_TestCase {
     protected $message;
 
     public function setUp() {
-        $renderer = $this->getMock('Zend\View\Renderer\PhpRenderer', array('render'));
+        $renderer = $this->getMock('Laminas\View\Renderer\PhpRenderer', array('render'));
         $renderer->expects($this->any())
             ->method('render')
             ->will($this->returnValue('Content'));
 
-        $transport = $this->getMock('Zend\Mail\Transport\File', array('send'));
+        $transport = $this->getMock('Laminas\Mail\Transport\File', array('send'));
         $transport->expects($this->any())
             ->method('send');
 
@@ -33,10 +33,10 @@ class MessageTest extends \PHPUnit_Framework_TestCase {
         $nameOrModel = array();
         $values      = array();
 
-        /** @var \Zend\Mail\Message $message */
+        /** @var \Laminas\Mail\Message $message */
         $message = $this->message->createHtmlMessage($from, $to, $subject, $nameOrModel, $values);
 
-        $this->assertInstanceOf('Zend\Mail\Message', $message);
+        $this->assertInstanceOf('Laminas\Mail\Message', $message);
     }
 
 
@@ -47,20 +47,20 @@ class MessageTest extends \PHPUnit_Framework_TestCase {
         $nameOrModel = array();
         $values      = array();
 
-        /** @var \Zend\Mail\Message $message */
+        /** @var \Laminas\Mail\Message $message */
         $message = $this->message->createTextMessage($from, $to, $subject, $nameOrModel, $values);
 
-        $this->assertInstanceOf('Zend\Mail\Message', $message);
+        $this->assertInstanceOf('Laminas\Mail\Message', $message);
     }
 
     public function testSend() {
-        $transport = $this->getMock('Zend\Mail\Transport\File', array('send'));
+        $transport = $this->getMock('Laminas\Mail\Transport\File', array('send'));
         $transport->expects($this->once())
             ->method('send');
 
         $this->message->setTransport($transport);
 
-        $message = new \Zend\Mail\Message();
+        $message = new \Laminas\Mail\Message();
         $this->message->send($message);
     }
 
@@ -75,7 +75,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase {
     }
 
     public function testGetRenderer() {
-        $this->assertInstanceOf('Zend\View\Renderer\PhpRenderer', $this->message->getRenderer());
+        $this->assertInstanceOf('Laminas\View\Renderer\PhpRenderer', $this->message->getRenderer());
     }
 
     public function testSetGetRenderer() {
@@ -85,7 +85,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase {
     }
 
     public function testGetTransport() {
-        $this->assertInstanceOf('Zend\Mail\Transport\TransportInterface', $this->message->getTransport());
+        $this->assertInstanceOf('Laminas\Mail\Transport\TransportInterface', $this->message->getTransport());
     }
 
     public function testSetGetTransport() {
