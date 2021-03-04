@@ -47,15 +47,18 @@ class Message {
         $renderer = $this->getRenderer();
         $content = $renderer->render($nameOrModel, $values);
 
-        $text = new MimePart('');
-        $text->type = "text/plain";
+        //skip adding empty text/plain part - as it is not actually used
+        //$text = new MimePart('');
+        //$text->type = "text/plain";
 
         $html = new MimePart($content);
         $html->type = "text/html; charset=UTF-8";
         $html->encoding = Mime::ENCODING_QUOTEDPRINTABLE;
 
         $body = new MimeMessage();
-        $body->setParts(array($text, $html));
+        //skip adding emptt text part
+        //$body->setParts(array($text, $html));
+        $body->setParts(array($html));
 
         return $this->getDefaultMessage($from, 'utf-8', $to, $subject, $body);
     }
